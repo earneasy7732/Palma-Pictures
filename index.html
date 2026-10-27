@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palma Pictures</title>
+<style>
+:root{--bg:#101012;--panel:#1d1d23;--field:#17171b;--line:#303037;--green:#68ed70;--light:#9af5a0;--muted:#a1a2af;--yellow:#ffd64d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}header{height:72px;background:#080809;border-bottom:1px solid #29292d;display:flex;align-items:center;justify-content:space-between;padding:0 14px;gap:10px;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:9px;font-weight:bold;white-space:nowrap}.logo{width:44px;height:46px;background:#171719;border-radius:8px;color:var(--green);display:grid;place-items:center;font-size:30px}.brand small{display:block;color:var(--green);font-size:10px;letter-spacing:2px;margin-top:3px}.menu-btn{background:none;border:0;color:white;font-size:27px}.top-actions{display:flex;align-items:center;gap:7px}.top-actions button{background:var(--green);border:0;border-radius:30px;padding:10px 12px;font-weight:bold;color:#111;white-space:nowrap}.top-actions .circle{background:transparent;color:white;border:1px solid #555;border-radius:50%;width:39px;height:39px;padding:0;font-size:18px}.wrap{max-width:780px;margin:auto;padding:20px 16px 100px}.page{display:none}.page.active{display:block}.card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:22px;margin:15px 0}.field{margin:17px 0}.field label{display:block;color:var(--muted);margin-bottom:9px}.field input,.field textarea,.field select{width:100%;border:1px solid #35353c;border-radius:16px;background:var(--field);color:#fff;padding:16px;outline:none}.field textarea{min-height:100px;resize:vertical}.btn{width:100%;border:0;border-radius:35px;padding:16px;background:linear-gradient(135deg,#85f58b,#55dc5b);color:#102012;font-weight:bold;font-size:17px;box-shadow:0 5px 22px #60ec7030}.btn.outline{background:transparent;border:1px solid #6acb76;color:var(--light);box-shadow:0 5px 22px #60ec7020}.btn.secondary{background:#28282f;color:white;box-shadow:none}.muted{color:var(--muted)}.green{color:var(--light)}.yellow{color:var(--yellow)}h1{font-size:29px;line-height:1.25;margin:8px 0 12px}h2{font-size:23px;margin:10px 0}h3{margin:8px 0 12px}p{color:var(--muted);line-height:1.65}.center{text-align:center}.hidden{display:none!important}.hero{padding:34px 8px;text-align:center}.hero .brandmark{font-size:65px;color:var(--light)}.hero .btn{max-width:420px;margin:14px auto}.stat{display:flex;justify-content:space-between;gap:12px;padding:17px 0;border-bottom:1px solid var(--line);align-items:center}.stat:last-child{border:0}.stat strong{font-size:20px;color:var(--light);text-align:right}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{background:#17171c;border-radius:18px;padding:18px;text-align:center}.mini strong{display:block;font-size:23px;margin-top:8px;color:var(--light)}.vip-card{border-radius:25px;padding:22px;margin:16px 0;background:var(--panel);border:1px solid var(--line)}.vip-card.current{border-color:#6f9e75;background:linear-gradient(140deg,#203326,#1d1d23)}.vip-head{display:flex;align-items:center;gap:15px;margin-bottom:20px}.vip-icon{height:76px;width:76px;border-radius:20px;background:#f4f4f4;color:#a76625;display:grid;place-items:center;font-size:39px}.badge{margin-left:auto;background:var(--green);color:#102012;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:bold}.menu-overlay{position:fixed;inset:0;background:#0009;z-index:20;display:none}.menu-overlay.show{display:block}.drawer{width:min(78%,360px);height:100%;background:#17171c;padding:22px;overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.navitem{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #33333a;color:white;padding:18px 5px;font-size:17px}.bottom-support{position:fixed;right:20px;bottom:25px;z-index:8;width:62px;height:62px;border-radius:50%;border:4px solid #24492b;background:#8cf49a;color:white;font-size:25px;box-shadow:0 0 22px #6aff7755;display:grid;place-items:center;text-decoration:none}.poster{background:linear-gradient(135deg,#20242a,#151519);border-radius:20px;padding:26px 18px;text-align:center;margin-bottom:22px}.order-number{font-size:28px;font-weight:bold;margin:22px 0}.task-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;margin:14px 0}.record{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:18px;margin:12px 0}.record-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.tag{display:inline-block;border-radius:20px;padding:6px 12px;background:#263d2c;color:var(--light);font-weight:bold;font-size:13px}.profile-row{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px;margin:8px 0;color:white;text-align:left}.notice{background:#28251b;border:1px solid #5b4b20;border-radius:14px;padding:13px;color:#ffe28a;font-size:13px;line-height:1.5}.admin-label{font-size:12px;color:var(--light);letter-spacing:1px;text-transform:uppercase}.smallbtn{border:1px solid #555;background:#292930;color:white;border-radius:10px;padding:9px 12px}.danger{color:#ff9b9b}.footer{border-top:1px solid var(--line);padding-top:18px;margin-top:35px;color:var(--muted);font-size:13px}
+@media(max-width:420px){header{padding:0 9px;gap:5px}.brand{gap:6px;font-size:14px}.logo{width:38px;height:40px}.top-actions{gap:4px}.top-actions button{padding:9px 9px;font-size:12px}.top-actions .circle{width:34px;height:34px}.wrap{padding-left:13px;padding-right:13px}.card{padding:18px}h1{font-size:26px}.grid2{gap:8px}.mini{padding:13px}.mini strong{font-size:20px}}
+</style>
+</head>
+<body>
+<header>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div class="brand"><div class="logo">✳</div><div><span id="brandName">Palma</span><small id="brandSub">PICTURES</small></div></div>
+  <div class="top-actions"><button onclick="go('work')">Start Work</button><button class="circle" onclick="go('profile')">♙</button><button class="circle" onclick="toggleMenu()">⌑</button></div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" onclick="if(event.target===this)toggleMenu()">
+ <div class="drawer">
+  <div class="drawer-head"><div class="brand"><div class="logo">✳</div><div id="drawerBrand">Palma Pictures</div></div><button class="smallbtn" onclick="toggleMenu()">✕</button></div>
+  <button class="navitem" onclick="go('home');toggleMenu()">Home</button>
+  <button class="navitem" onclick="go('records');toggleMenu()">Record</button>
+  <button class="navitem" onclick="go('vip');toggleMenu()">VIP Level</button>
+  <button class="navitem" onclick="go('about');toggleMenu()">About Us</button>
+  <button class="navitem" onclick="go('terms');toggleMenu()">Content Terms</button>
+  <button class="navitem" onclick="go('faq');toggleMenu()">Frequently Asked Questions</button>
+  <button class="navitem" onclick="go('recommendations');toggleMenu()">Recommendations</button>
+  <button class="navitem" onclick="go('profile');toggleMenu()">My Account</button>
+  <button class="navitem" onclick="go('admin');toggleMenu()">Admin Panel (demo)</button>
+ </div>
+</div>
+
+<main class="wrap">
+<section id="home" class="page active">
+ <div class="hero"><div class="brandmark">✳</div><h1 id="heroTitle">Join Palma Pictures and start receiving orders</h1><p id="heroText">Upgrade your VIP, match tasks, and complete orders. View your task history and account information in one place.</p><button class="btn" onclick="go('work')" id="heroButton">Start receiving orders</button></div>
+ <div class="card"><h2>What <span class="brandTitle">Palma Pictures</span> offers</h2><p id="homeIntro">A simple task platform demo with VIP levels, order tasks, account records, and customer support.</p>
+  <div class="task-card"><h3>▰ VIP levels and commission</h3><p>Each VIP level shows its configured commission rate and daily task limit.</p></div>
+  <div class="task-card"><h3>▣ Task management</h3><p>View tasks configured by the administrator and submit a task review.</p></div>
+  <div class="task-card"><h3>◈ Account records</h3><p>Keep a local demo history of task submissions and account actions.</p></div>
+ </div>
+ <div class="card"><h2>Common questions</h2><p id="homeFooter">For account, task, or withdrawal questions, contact customer service.</p><button class="btn outline" onclick="go('faq')">Frequently Asked Questions</button></div>
+</section>
+
+<section id="register" class="page">
+ <div class="card"><h1>Register Account</h1><p>Create your account</p>
+  <div class="field"><label>Username</label><input id="regUser" placeholder="Username"></div>
+  <div class="field"><label>Phone Number</label><input id="regPhone" placeholder="Phone Number" inputmode="tel"></div>
+  <div class="field"><label>Password</label><input id="regPass" type="password" placeholder="Password"></div>
+  <div class="field"><label>Confirm Password</label><input id="regConfirm" type="password" placeholder="Confirm Password"></div>
+  <div class="field"><label>Invitation Code</label><input id="regInvite" placeholder="Invitation Code (optional)"></div>
+  <label><input type="checkbox" id="agree"> I agree with User Registration Agreement</label>
+  <p class="notice">Demo mode: this prototype saves account details only in this browser. Do not use a real password.</p>
+  <button class="btn" onclick="register()">Register</button><p class="center">Already have an account? <a href="#" class="green" onclick="go('login')">Login now</a></p>
+ </div>
+</section>
+
+<section id="login" class="page">
+ <div class="hero"><div class="brandmark">✳</div><h1 class="brandTitle">Palma Pictures</h1><p>Ready to get started?</p><h2>Please log in to see more content.</h2></div>
+ <div class="card"><p>Please enter your login information</p><div class="field"><label>Username</label><input id="loginUser" placeholder="Username"></div><div class="field"><label>Password</label><input id="loginPass" type="password" placeholder="Password"></div><button class="btn" onclick="login()">Log In</button><p class="center">No account? <a href="#" class="green" onclick="go('register')">Register now</a></p></div>
+</section>
+
+<section id="work" class="page">
+ <div class="poster"><div style="font-size:38px">🎬</div><h2 id="workTitle">Start Work</h2><p id="workIntro">Review the task details and submit only when you have completed the task.</p></div>
+ <div class="center"><span class="tag" id="currentVipTag">VIP 1 · 0.5%</span><div class="order-number">ORDER: <span id="taskCount">0</span>/<span id="taskLimit">40</span></div></div>
+ <button class="btn" onclick="receiveTask()">Receive order</button>
+ <div class="stat"><span>Available Balance</span><strong><span id="workBalance">0.00</span> <small>USDC/T demo</small></strong></div>
+ <div class="stat"><span>Today's Commission</span><strong><span id="todayCommission">0.00</span></strong></div>
+ <div class="stat"><span>Frozen Amount</span><strong><span id="frozenAmount">0.00</span></strong></div>
+ <div class="stat"><span>Total Achieved</span><strong><span id="totalAchieved">0</span></strong></div>
+ <div id="activeTask" class="task-card hidden"></div>
+ <div class="card center"><h2>Notice</h2><p id="workNotice">This is a demonstration. No real deposit or payout is processed by this page.</p><button class="btn outline" onclick="go('records')">History</button></div>
+</section>
+
+<section id="vip" class="page"><h1>VIP Level</h1><p>VIP settings are demo values and can be edited in the Admin Panel.</p><div id="vipList"></div></section>
+
+<section id="records" class="page"><h1>Income records</h1><p class="muted">Records saved in this browser demo.</p><div id="recordList"></div></section>
+
+<section id="profile" class="page">
+ <div class="center" style="padding:20px 0"><div class="brandmark">♙</div><h1 id="profileUser">Guest</h1><p>ID: <span id="profileId">—</span> · <span id="profileVip">VIP 1</span></p></div>
+ <div class="card"><div class="stat"><span>Account Balance</span><strong><span id="profileBalance">0.00</span> <small>USDC/T demo</small></strong></div><div class="stat"><span>Invitation Code</span><strong id="inviteCode">DEMO2026</strong></div></div>
+ <h2>Personal Profile</h2>
+ <button class="profile-row" onclick="go('topup')">▣ &nbsp; Top up <span>›</span></button>
+ <button class="profile-row" onclick="go('withdraw')">➜ &nbsp; Withdraw <span>›</span></button>
+ <button class="profile-row" onclick="go('wallet')">◇ &nbsp; Bind wallet address <span>›</span></button>
+ <button class="profile-row" onclick="go('password')">▣ &nbsp; Change login password <span>›</span></button>
+ <button class="profile-row" onclick="go('about')">ⓘ &nbsp; About Us <span>›</span></button>
+ <button class="profile-row" onclick="logout()">↪ &nbsp; Log out <span>›</span></button>
+</section>
+
+<section id="topup" class="page"><div class="card"><h1>Top up / Deposit</h1><p id="depositMessage">Please contact customer service for deposit instructions. Never send money to an unverified address.</p><button class="btn" onclick="contactSupport()">Contact Customer Service</button><p class="notice">This demo does not accept deposits or verify blockchain transactions.</p></div></section>
+<section id="withdraw" class="page"><div class="card"><h1>Withdraw</h1><p>Demo request only; no funds are sent.</p><div class="field"><label>Amount</label><input id="withdrawAmount" type="number" min="0" placeholder="Enter amount"></div><div class="field"><label>USDT wallet address</label><input id="withdrawAddress" placeholder="Your wallet address"></div><button class="btn" onclick="withdrawRequest()">Submit withdrawal request</button></div></section>
+<section id="wallet" class="page"><div class="card"><h1>Bind wallet address</h1><div class="field"><label>Network</label><select id="walletNetwork"><option>TRC20</option><option>ERC20</option><option>BEP20</option></select></div><div class="field"><label>Wallet address</label><input id="walletAddress" placeholder="Enter wallet address"></div><button class="btn" onclick="saveWallet()">Save wallet (demo)</button></div></section>
+<section id="password" class="page"><div class="card"><h1>Change password</h1><div class="field"><label>Current password</label><input id="oldPassword" type="password"></div><div class="field"><label>New password</label><input id="newPassword" type="password"></div><button class="btn" onclick="changePassword()">Update password</button></div></section>
+
+<section id="about" class="page"><div class="card"><h1>About Us</h1><div id="aboutText" class="editableText"></div></div></section>
+<section id="terms" class="page"><div class="card"><h1>Content Terms</h1><div id="termsText" class="editableText"></div></div></section>
+<section id="faq" class="page"><div class="card"><h1>Frequently Asked Questions</h1><div id="faqText" class="editableText"></div></div></section>
+<section id="recommendations" class="page"><div class="card"><h1>Recommendations</h1><div id="recommendationsText" class="editableText"></div></div></section>
+
+<section id="admin" class="page">
+ <div class="card"><h1>Admin Panel</h1><p>Front-end demo editor. Settings are saved in this browser only; this is not a secure production admin panel.</p>
+ <div id="adminLogin"><div class="field"><label>Demo admin password</label><input id="adminPassword" type="password" placeholder="Default: admin123"></div><button class="btn" onclick="adminLogin()">Open Admin Panel</button></div>
+ <div id="adminEditor" class="hidden">
+  <h2>Website text and brand</h2>
+  <div class="field"><label>Website name</label><input id="setName"></div><div class="field"><label>Brand subtitle</label><input id="setSub"></div>
+  <div class="field"><label>Home headline</label><input id="setHeadline"></div><div class="field"><label>Home description</label><textarea id="setHomeText"></textarea></div>
+  <div class="field"><label>Home intro</label><textarea id="setIntro"></textarea></div><div class="field"><label>Work page title</label><input id="setWorkTitle"></div><div class="field"><label>Work notice</label><textarea id="setWorkNotice"></textarea></div>
+  <div class="field"><label>Deposit message</label><textarea id="setDepositMessage"></textarea></div>
+  <div class="field"><label>About Us text</label><textarea id="setAbout"></textarea></div><div class="field"><label>Content Terms text</label><textarea id="setTerms"></textarea></div><div class="field"><label>FAQ text</label><textarea id="setFaq"></textarea></div><div class="field"><label>Recommendations text</label><textarea id="setRecommendations"></textarea></div>
+  <h2>Customer service WhatsApp</h2><div class="field"><label>WhatsApp number with country code (digits only)</label><input id="setWhatsApp" placeholder="8801XXXXXXXXX"></div>
+  <h2>VIP level settings (4 levels)</h2><div id="vipEditor"></div>
+  <h2>Task settings</h2><p>Task commission percentage and demo frozen amount can be set per task. Frozen amounts only simulate a status in this demo and do not move real funds.</p>
+  <div class="field"><label>Task list (one task per line: Title | Order amount | Frozen amount | Commission % | Description)</label><textarea id="setTasks" style="min-height:180px"></textarea></div>
+  <button class="btn" onclick="saveAdminSettings()">Save all settings</button><button class="btn secondary" style="margin-top:12px" onclick="resetDemo()">Reset demo data</button>
+  <p class="notice">Important: real users, secure passwords, admin permissions, and real balances require a backend (e.g. Firebase with secure rules and server-side validation). Never use this browser-only demo to collect deposits.</p>
+ </div></div>
+</section>
+<div class="footer"><span class="brandTitle">Palma Pictures</span> · Demo website · <span onclick="go('admin')" style="cursor:pointer">Admin</span></div>
+</main>
+<a class="bottom-support" href="#" onclick="contactSupport();return false" aria-label="WhatsApp customer service">☏</a>
+
+<script>
+const defaults={
+ name:"Palma",sub:"PICTURES",headline:"Join Palma Pictures and start receiving orders",
+ homeText:"Upgrade your VIP, match tasks, and complete orders. View your task history and account information in one place.",
+ intro:"A simple task platform demo with VIP levels, order tasks, account records, and customer support.",
+ workTitle:"Start Work",workNotice:"This is a demonstration. No real deposit or payout is processed by this page.",
+ depositMessage:"Please contact customer service for deposit instructions. Never send money to an unverified address.",
+ about:"Palma Pictures is a demonstration task platform interface. Replace this text with your own accurate company information in the Admin Panel.",
+ terms:"Use this demo responsibly. Do not submit money or sensitive personal information. Task, commission, and balance values are demonstrations only. Actual services and payment terms must be clearly disclosed.",
+ faq:"Q: How do I start?\\nA: Register in the demo and open Start Work.\\n\\nQ: Are deposits or withdrawals real?\\nA: No. This demo does not process real money.\\n\\nQ: How do I get help?\\nA: Use the WhatsApp support button after configuring your number in Admin Panel.",
+ recommendations:"Only use services you can independently verify. Never pay an upfront fee based on a promise of guaranteed income. Check all terms before using any real-money service.",
+ whatsapp:"",
+ vips:[
+  {name:"VIP 1",commission:0.5,limit:40,unlock:50},
+  {name:"VIP 2",commission:0.6,limit:50,unlock:1500},
+  {name:"VIP 3",commission:0.8,limit:55,unlock:5000},
+  {name:"VIP 4",commission:1,limit:60,unlock:10000}
+ ],
+ tasks:[
+  {title:"Movie review task",amount:20,frozen:0,commission:0.5,description:"Review the task details and choose a response after completing the task."},
+  {title:"Content review task",amount:30,frozen:0,commission:0.5,description:"Read the content and submit your task review."},
+  {title:"Product information task",amount:25,frozen:0,commission:0.5,description:"Check the product information and submit your response."}
+ ]
+};
+let settings=load("pp_settings",defaults), user=load("pp_user",null), records=load("pp_records",[]), state=load("pp_state",{balance:0,commission:0,frozen:0,achieved:0,taskCount:0,vip:0,taskIndex:0,active:null,wallet:"",network:"TRC20"});
+function load(k,f){try{let v=localStorage.getItem(k);return v?JSON.parse(v):JSON.parse(JSON.stringify(f))}catch(e){return JSON.parse(JSON.stringify(f))}}
+function saveAll(){localStorage.setItem("pp_settings",JSON.stringify(settings));localStorage.setItem("pp_user",JSON.stringify(user));localStorage.setItem("pp_records",JSON.stringify(records));localStorage.setItem("pp_state",JSON.stringify(state))}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function go(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));window.scrollTo(0,0);if(id==="vip")renderVips();if(id==="records")renderRecords();if(id==="profile")renderProfile();if(id==="work")renderWork();if(["about","terms","faq","recommendations"].includes(id))renderTextPages();if(id==="admin"&&document.getElementById("adminEditor").classList.contains("hidden")){} }
+function toggleMenu(){document.getElementById("menuOverlay").classList.toggle("show")}
+function setText(id,text){document.getElementById(id).textContent=text}
+function applySettings(){
+ setText("brandName",settings.name);setText("brandSub",settings.sub);setText("drawerBrand",settings.name+" "+settings.sub);document.querySelectorAll(".brandTitle").forEach(x=>x.textContent=settings.name+" "+settings.sub);
+ setText("heroTitle",settings.headline);setText("heroText",settings.homeText);setText("homeIntro",settings.intro);setText("workTitle",settings.workTitle);setText("workNotice",settings.workNotice);setText("depositMessage",settings.depositMessage);
+ renderTextPages();renderVips();renderWork();renderProfile();renderRecords();
+}
+function renderTextPages(){for(const [id,key] of [["aboutText","about"],["termsText","terms"],["faqText","faq"],["recommendationsText","recommendations"]])document.getElementById(id).innerHTML=esc(settings[key]).replace(/\n/g,"<br>")}
+function register(){let u=document.getElementById("regUser").value.trim(),ph=document.getElementById("regPhone").value.trim(),p=document.getElementById("regPass").value,c=document.getElementById("regConfirm").value;if(!u||!ph||!p)return alert("Please complete all required fields.");if(p!==c)return alert("Passwords do not match.");if(!document.getElementById("agree").checked)return alert("Please agree to the registration terms.");user={username:u,phone:ph,password:p,id:String(Math.floor(10000+Math.random()*89999)),invite:document.getElementById("regInvite").value.trim()};state={balance:0,commission:0,frozen:0,achieved:0,taskCount:0,vip:0,taskIndex:0,active:null,wallet:"",network:"TRC20"};records=[];saveAll();alert("Demo account created in this browser.");go("profile")}
+function login(){let u=document.getElementById("loginUser").value.trim(),p=document.getElementById("loginPass").value;if(!user){alert("Please register a demo account first.");go("register");return}if(u!==user.username||p!==user.password){alert("Incorrect demo username or password.");return}alert("Logged in to demo.");go("profile")}
+function logout(){user=null;saveAll();alert("Logged out.");go("login")}
+function ensureLogin(){if(!user){alert("Please register or log in first.");go("login");return false}return true}
+function addRecord(type,amount,detail){records.unshift({type,amount:Number(amount||0),balance:state.balance,detail:detail||"",date:new Date().toLocaleString()});saveAll()}
+function renderVips(){let el=document.getElementById("vipList");if(!el)return;el.innerHTML=settings.vips.map((v,i)=>`<div class="vip-card ${i===state.vip?"current":""}"><div class="vip-head"><div class="vip-icon">${["🥉","🥈","🥇","💎"][i]||"⭐"}</div><div><h2>${esc(v.name)}</h2><span class="muted">Task access level</span></div>${i===state.vip?'<span class="badge">Current</span>':""}</div><div class="grid2"><div class="mini">Commission<strong>${Number(v.commission)}%</strong></div><div class="mini">Today's Task Limit<strong>${Number(v.limit)}</strong></div></div><div class="stat"><span>Unlock Amount</span><strong class="yellow">USDC/T ${Number(v.unlock).toFixed(2)}</strong></div><button class="btn ${i===state.vip?"":"outline"}" onclick="selectVip(${i})">${i===state.vip?"Current VIP":"Select VIP (demo)"}</button></div>`).join("")}
+function selectVip(i){if(!ensureLogin())return;if(i>state.vip){alert("VIP upgrades are only simulated in this demo. No payment is taken.");return}state.vip=i;saveAll();renderVips();renderWork()}
+function renderWork(){if(!settings)return;let v=settings.vips[state.vip]||settings.vips[0];setText("currentVipTag",v.name+" · "+v.commission+"%");setText("taskCount",state.taskCount);setText("taskLimit",v.limit);setText("workBalance",Number(state.balance).toFixed(2));setText("todayCommission",Number(state.commission).toFixed(2));setText("frozenAmount",Number(state.frozen).toFixed(2));setText("totalAchieved",state.achieved);let el=document.getElementById("activeTask");if(state.active){el.classList.remove("hidden");el.innerHTML=`<h2>${esc(state.active.title)}</h2><p>${esc(state.active.description)}</p><div class="stat"><span>Order amount</span><strong>${Number(state.active.amount).toFixed(2)} USDC/T demo</strong></div><div class="stat"><span>Demo frozen amount</span><strong>${Number(state.active.frozen).toFixed(2)}</strong></div><div class="stat"><span>Commission rate</span><strong>${Number(state.active.commission)}%</strong></div><button class="btn" onclick="submitTask()">Submit task (demo)</button><button class="btn secondary" style="margin-top:10px" onclick="cancelTask()">Cancel task</button>`}else{el.classList.add("hidden")}}
+function receiveTask(){if(!ensureLogin())return;if(state.active){alert("Complete or cancel the current demo task first.");return}let v=settings.vips[state.vip];if(state.taskCount>=Number(v.limit)){alert("Today's configured task limit has been reached.");return}if(!settings.tasks.length){alert("No tasks configured in Admin Panel.");return}let t=settings.tasks[state.taskIndex%settings.tasks.length];state.taskIndex++;state.active={...t};state.frozen=Number(t.frozen)||0;saveAll();renderWork()}
+function submitTask(){if(!state.active)return;let t=state.active;let earn=Number(t.amount)*Number(t.commission)/100;state.balance+=earn;state.commission+=earn;state.achieved++;state.taskCount++;state.frozen=0;addRecord("Task commission",earn,t.title+" · demo only");state.active=null;saveAll();renderWork();alert("Demo task submitted. Simulated commission: "+earn.toFixed(2)+" USDC/T. This is not real money or a payout.");}
+function cancelTask(){state.active=null;state.frozen=0;saveAll();renderWork()}
+function renderRecords(){let el=document.getElementById("recordList");if(!el)return;if(!records.length){el.innerHTML='<div class="card center muted">No records yet</div>';return}el.innerHTML=records.map(r=>`<div class="record"><div class="record-head"><span class="tag">${esc(r.type)}</span><span class="muted">${esc(r.date)}</span></div><div class="stat"><span>Amount</span><strong>${Number(r.amount).toFixed(2)} USDC/T demo</strong></div><div class="stat"><span>Account balance</span><strong>${Number(r.balance).toFixed(2)} USDC/T demo</strong></div><p>${esc(r.detail)}</p></div>`).join("")}
+function renderProfile(){if(!document.getElementById("profileUser"))return;setText("profileUser",user?user.username:"Guest");setText("profileId",user?user.id:"—");setText("profileVip",(settings.vips[state.vip]||settings.vips[0]).name);setText("profileBalance",Number(state.balance).toFixed(2));setText("inviteCode",user?("PA"+user.id):"DEMO2026")}
+function contactSupport(){let n=(settings.whatsapp||"").replace(/\D/g,"");if(!n){alert("WhatsApp support number is not set. Admin Panel → Customer service WhatsApp.");go("admin");return}window.open("https://wa.me/"+n,"_blank")}
+function withdrawRequest(){if(!ensureLogin())return;let amount=Number(document.getElementById("withdrawAmount").value),addr=document.getElementById("withdrawAddress").value.trim();if(!amount||amount<=0||!addr)return alert("Enter a valid amount and wallet address.");addRecord("Demo withdrawal request",amount,"Request recorded locally only. No funds sent.");alert("Demo request saved locally. No real withdrawal was made.");go("records")}
+function saveWallet(){if(!ensureLogin())return;let a=document.getElementById("walletAddress").value.trim();if(!a)return alert("Enter wallet address.");state.wallet=a;state.network=document.getElementById("walletNetwork").value;saveAll();alert("Wallet saved in this browser demo.");go("profile")}
+function changePassword(){if(!ensureLogin())return;let old=document.getElementById("oldPassword").value,n=document.getElementById("newPassword").value;if(old!==user.password)return alert("Current password does not match.");if(n.length<6)return alert("Use at least 6 characters.");user.password=n;saveAll();alert("Demo password updated.");go("profile")}
+function adminLogin(){if(document.getElementById("adminPassword").value!=="admin123"){alert("Incorrect demo password.");return}document.getElementById("adminLogin").classList.add("hidden");document.getElementById("adminEditor").classList.remove("hidden");fillAdmin()}
+function fillAdmin(){const map={setName:"name",setSub:"sub",setHeadline:"headline",setHomeText:"homeText",setIntro:"intro",setWorkTitle:"workTitle",setWorkNotice:"workNotice",setDepositMessage:"depositMessage",setAbout:"about",setTerms:"terms",setFaq:"faq",setRecommendations:"recommendations",setWhatsApp:"whatsapp"};for(let id in map)document.getElementById(id).value=settings[map[id]]||"";document.getElementById("vipEditor").innerHTML=settings.vips.map((v,i)=>`<div class="task-card"><h3>${esc(v.name)}</h3><div class="field"><label>VIP name</label><input id="vipName${i}" value="${esc(v.name)}"></div><div class="grid2"><div class="field"><label>Commission %</label><input id="vipComm${i}" type="number" min="0" step="0.01" value="${Number(v.commission)}"></div><div class="field"><label>Daily task limit</label><input id="vipLimit${i}" type="number" min="0" value="${Number(v.limit)}"></div></div><div class="field"><label>Unlock amount (demo)</label><input id="vipUnlock${i}" type="number" min="0" value="${Number(v.unlock)}"></div></div>`).join("");document.getElementById("setTasks").value=settings.tasks.map(t=>[t.title,t.amount,t.frozen,t.commission,t.description].join(" | ")).join("\n")}
+function saveAdminSettings(){const map={setName:"name",setSub:"sub",setHeadline:"headline",setHomeText:"homeText",setIntro:"intro",setWorkTitle:"workTitle",setWorkNotice:"workNotice",setDepositMessage:"depositMessage",setAbout:"about",setTerms:"terms",setFaq:"faq",setRecommendations:"recommendations",setWhatsApp:"whatsapp"};for(let id in map)settings[map[id]]=document.getElementById(id).value.trim();settings.vips=settings.vips.map((v,i)=>({name:document.getElementById("vipName"+i).value.trim()||("VIP "+(i+1)),commission:Math.max(0,Number(document.getElementById("vipComm"+i).value)||0),limit:Math.max(0,Number(document.getElementById("vipLimit"+i).value)||0),unlock:Math.max(0,Number(document.getElementById("vipUnlock"+i).value)||0)}));let lines=document.getElementById("setTasks").value.split("\n").map(x=>x.trim()).filter(Boolean);settings.tasks=lines.map(line=>{let a=line.split("|").map(x=>x.trim());return{title:a[0]||"Task",amount:Math.max(0,Number(a[1])||0),frozen:Math.max(0,Number(a[2])||0),commission:Math.max(0,Number(a[3])||0),description:a.slice(4).join(" | ")||"Complete the task and submit."}});if(!settings.tasks.length)settings.tasks=defaults.tasks;saveAll();applySettings();alert("Settings saved in this browser only.");}
+function resetDemo(){if(!confirm("Reset demo account, records and settings to defaults?"))return;localStorage.removeItem("pp_settings");localStorage.removeItem("pp_user");localStorage.removeItem("pp_records");localStorage.removeItem("pp_state");location.reload()}
+applySettings();if(!user){/* guest can view home; login required for account actions */}
+</script>
+</body>
+</html>
