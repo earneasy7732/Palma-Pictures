@@ -1,0 +1,261 @@
+<script type="module">
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA9VggcDafqzFojGL8DJjf7fa89QJd1QhA",
+  authDomain: "palma-task-platform.firebaseapp.com",
+  projectId: "palma-task-platform",
+  storageBucket: "palma-task-platform.firebasestorage.app",
+  messagingSenderId: "583791987986",
+  appId: "1:583791987986:web:69a7e3806962f5faa9b7cb"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+function firebaseError(error) {
+  const messages = {
+    "auth/email-already-in-use":
+      "This email is already registered. Please log in.",
+    "auth/invalid-email":
+      "Please enter a valid email address.",
+    "auth/weak-password":
+      "Password must be at least 6 characters.",
+    "auth/invalid-credential":
+      "Incorrect email or password.",
+    "auth/network-request-failed":
+      "Network error. Please check your internet connection.",
+    "permission-denied":
+      "Firestore permission denied. Please check Firestore Rules."
+  };
+
+  return messages[error?.code] ||
+    error?.message ||
+    "Something went wrong. Please try again.";
+}
+
+window.register = async function () {
+  const username =
+    document.getElementById("regUser").value.trim();
+
+  const email =
+    document.getElementById("regEmail").value.trim();
+
+  const phone =
+    document.getElementById("regPhone").value.trim();
+
+  const password =
+    document.getElementById("regPass").value;
+
+  const confirmPassword =
+    document.getElementById("regConfirm").value;
+
+  const invite =
+    document.getElementById("regInvite").value.trim();
+
+  if (!username || !email || !phone || !password) {
+    alert("Please complete all required fields.");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters.");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  if (!document.getElementById("agree").checked) {
+    alert("Please agree to the registration terms.");
+    return;
+  }
+
+  try {
+    const credential =
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    await updateProfile(credential.user, {
+      displayName: username
+    });
+
+    await setDoc(
+      doc(db, "users", credential.user.uid),
+      {
+        uid: credential.user.uid,
+        username: username,
+        email: email,
+        phone: phone,
+        invite: invite,
+        role: "user",
+        createdAt: serverTimestamp()
+      }
+    );
+
+    user = {
+      uid: credential.user.uid,
+      username: username,
+      email: email,
+      phone: phone,
+      id: credential.user.uid.slice(0, 8),
+      invite: invite
+    };
+
+    if (!localStorage.getItem("pp_state")) {
+      state = {
+        balance: 0,
+        commission: 0,
+        frozen: 0,
+        achieved: 0,
+        taskCount: 0,
+        vip: 0,
+        taskIndex: 0,
+        active: null,
+        wallet: "",
+        network: "TRC20"
+      };
+
+      records = [];
+      saveAll();
+    }
+
+    alert("Account created successfully.");
+    go("profile");
+
+  } catch (error) {
+    alert(firebaseError(error));
+  }
+};
+
+window.login = async function () {
+  const email =
+    document.getElementById("loginUser").value.trim();
+
+  const password =
+    document.getElementById("loginPass").value;
+
+  if (!email || !password) {
+    alert("Enter your email and password.");
+    return;
+  }
+
+  try {
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    alert("Logged in successfully.");
+    go("profile");
+
+  } catch (error) {
+    alert(firebaseError(error));
+  }
+};
+
+window.firebaseLogout = async function () {
+  try {
+    await signOut(auth);
+    user = null;
+    saveAll();
+    alert("Logged out.");
+    go("login");
+
+  } catch (error) {
+    alert(firebaseError(error));
+  }
+};
+
+window.resetFirebasePassword = async function () {
+  const email =
+    document.getElementById("loginUser").value.trim();
+
+  if (!email) {
+    alert("Enter your email address first.");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert(
+      "Password reset email sent. Check your inbox and spam folder."
+    );
+
+  } catch (error) {
+    alert(firebaseError(error));
+  }
+};
+
+onAuthStateChanged(auth, async currentUser => {
+  if (!currentUser) {
+    user = null;
+    saveAll();
+    renderProfile();
+    return;
+  }
+
+  try {
+    const snapshot = await getDoc(
+      doc(db, "users", currentUser.uid)
+    );
+
+    const data = snapshot.exists()
+      ? snapshot.data()
+      : {};
+
+    user = {
+      uid: currentUser.uid,
+      username:
+        data.username ||
+        currentUser.displayName ||
+        "User",
+      email: currentUser.email || "",
+      phone: data.phone || "",
+      id: currentUser.uid.slice(0, 8),
+      invite: data.invite || ""
+    };
+
+    renderProfile();
+
+  } catch (error) {
+    console.error(error);
+
+    user = {
+      uid: currentUser.uid,
+      username: currentUser.displayName || "User",
+      email: currentUser.email || "",
+      id: currentUser.uid.slice(0, 8)
+    };
+
+    renderProfile();
+  }
+});
+</script>
